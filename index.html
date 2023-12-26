@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ff7bac; /* Love pink background color */
+            text-align: center;
+            line-height: 1.6;
+            height: 100vh;
+            width: 100vw;
+           
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden; /* Hide content overflow */
+        }
+
+        footer {
+            padding: 1em;
+            background-color: #333;
+            color: #fff;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #messageDiv {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        #gifDiv {
+            background-image: url('https://media1.giphy.com/media/XYEEvoX0Ub69ZgN9ai/giphy.gif?cid=6c09b952exq03rk7r3cupozaaxounegrgq5b9sssaixqln30&ep=v1_gifs_search&rid=giphy.gif&ct=g');
+            background-size: contain;
+            background-position: center;
+            width: 100%;
+            height: 300px; /* Adjust the height as needed */
+            background-repeat: no-repeat;
+        }
+
+        #noButton {
+            animation: pulse 1.5s infinite;
+            position: absolute;
+            left: 35%;
+        }
+    
+        @media (max-width: 600px) {
+            #noButton {
+                left: 25%; /* Adjust the percentage as needed */
+            }
+            #yesbtn{
+                margin-left: 25%;
+            }
+        }
+
+        #buttonsContainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .balloons-and-chocolates {
+            display: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sorry Perugu.</h1>
+    </header>
+
+    <main id="main">
+        <h3 class="sorry">
+            Plss accept my sorry.
+        </h3>
+
+        <div id="gifDiv"></div>
+
+        <div id="buttonsContainer">
+            <button id="noButton" onclick="moveButton()">No</button>
+            <button id="yesbtn" onclick="showMessage()">Okay! Love</button>
+        </div>
+
+        <div id="messageDiv"></div>
+        <div class="balloons-and-chocolates"></div>
+    </main>
+
+    <script>
+        function moveButton() {
+            var noButton = document.getElementById('noButton');
+            var main = document.getElementById('main');
+            var messageDiv = document.getElementById('messageDiv');
+
+            // Check if messageDiv is displayed
+            if (messageDiv.style.display === 'block') {
+                alert('Shutup baby! I know you love me but You will never accept it!');
+                return; // Don't move the button if alert is shown
+            }
+
+            var maxX = main.clientWidth - noButton.clientWidth;
+            var maxY = main.clientHeight - noButton.clientHeight;
+
+            var newX = Math.floor(Math.random() * maxX);
+            var newY = Math.floor(Math.random() * maxY);
+
+            noButton.style.left = newX + 'px';
+            noButton.style.top = newY + 'px';
+        }
+
+        function showMessage() {
+            var messageDiv = document.getElementById('messageDiv');
+            messageDiv.innerHTML = 'Yeeeee!! I know you would forgive me! As you cant live without me naa 😁😁😏😏';
+            messageDiv.style.display = 'block';
+
+            var gifDiv = document.getElementById('gifDiv');
+            gifDiv.style.backgroundImage = 'url(https://img.wattpad.com/04394a7791f24649e5cfc2fc6b92c31e734c84b0/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f6f4d51617a6f6f7a7255615133773d3d2d3534353134313930362e313531613163353231386239376631613839343836373736393336312e676966)';
+            
+            var sorryElement = document.querySelector('.sorry');
+            sorryElement.innerHTML = 'Thank You Princess Yamuna! Your boy is Ready to serve!';
+
+            document.body.style.backgroundImage = 'url(https://i.pinimg.com/originals/99/cf/bc/99cfbcea6fc3b3848e1d35be0de3617f.gif)';
+            document.body.style.backgroundPosition = 'center';
+            document.body.style.backgroundRepeat = 'no-repeat';
+            document.body.style.backgroundSize = 'cover';
+        }
+    </script>
+
+</body>
+</html>
